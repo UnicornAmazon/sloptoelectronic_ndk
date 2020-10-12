@@ -1,7 +1,7 @@
 package com.afscope.sloptoelectronic;
 
 public class LoginBean {
-    String ip = "192.168.3.160";
+    String ip = "192.168.3.150";
     int port = 80;
     Login login=new Login();
 

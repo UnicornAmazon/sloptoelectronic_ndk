@@ -48,6 +48,8 @@ L_SDK_API int l_sdk_md_remove_listener(char* p_name);
 L_SDK_API int l_sdk_md_clear(int id, int chnn, int idx, int md_id);
 
 
+
+
 /// @brief 从内存缓存中获取最新的媒体数据
 /// @param [in] id        登录id
 /// @param [in] chnn      通道

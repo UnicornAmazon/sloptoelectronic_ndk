@@ -3,6 +3,7 @@ package com.afscope.sloptoelectronic;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 public class JfGLSurfaceView extends GLSurfaceView {
 

@@ -52,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String s = gson.toJson(new LoginBean());
         int code = optoelecJinV2.login(s);
-
         int i = optoelecJinV2.decOpen();
         int i1 = optoelecJinV2.decBind();
         optoelecJinV2.streamRequest();
+//        int lis = optoelecJinV2.mediaListener();
+        File file = new File(Environment.getExternalStorageDirectory(), "test.h264");
+//        int lis = optoelecJinV2.startRecord(file.getPath());
         Log.i("lixiang", "onCreate: " + code + i + i1);
 //        surfaceView.setEGLContextClientVersion(2);
 //
@@ -80,16 +82,17 @@ public class MainActivity extends AppCompatActivity {
 
 //        JfPlayer jfPlayer = new JfPlayer();
 //        jfPlayer.setJfGLSurfaceView(surfaceView);
-        Timer timer=new Timer();
+        Timer timer = new Timer();
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-
-                    surfaceView.getYuvMediaData();
-
+                synchronized (this) {
+                    if (null != surfaceView)
+                        surfaceView.getYuvMediaData();
+                }
             }
         };
-        timer.schedule(task,0,15);
+        timer.schedule(task, 0, 15);
 
     }
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/app/src/main/cpp/fr_h264.cpp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/fr_h264.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/l_sdk.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/l_sdk_dec.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/l_sdk_discover.h" charset="GBK" />
     <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/l_sdk_media.h" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/l_sdk_multicast.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/cpp/include/proto/l_md_buf.h" charset="GBK" />
   </component>
 </project>

@@ -17,12 +17,13 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/cpp/native-lib.cpp )
-
+             src/main/cpp/native-lib.cpp
+        )
 #target_include_directories(native-lib
 #PRIVATE
 #${CMAKE_SOURCE_DIR}/src/main/cpp/include)
-include_directories(${CMAKE_SOURCE_DIR}/src/main/cpp/include)
+include_directories(src/main/cpp/include)
+
 
 add_library(libl_sdk SHARED IMPORTED)
 set_target_properties(libl_sdk PROPERTIES IMPORTED_LOCATION

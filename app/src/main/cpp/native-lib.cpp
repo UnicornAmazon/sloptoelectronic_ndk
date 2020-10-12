@@ -6,6 +6,8 @@
 #include <l_sdk.h>
 #include <l_sdk_discover.h>
 
+
+
 extern "C" JNIEXPORT jstring
 
 JNICALL
@@ -161,7 +163,6 @@ Java_com_afscope_sloptoelectronic_JfGLSurfaceView_getYuvMediaData(
         env->DeleteLocalRef(y);
         env->DeleteLocalRef(u);
         env->DeleteLocalRef(v);
-        env->DeleteLocalRef(v);
         l_sdk_dec_free_md_data(p_res);
     }
     return i;
@@ -271,4 +272,50 @@ Java_com_afscope_sloptoelectronic_OptoelecJinV2_clientRequestUpdate(
     state = l_sdk_request(0, rtn, &p_res);
     __android_log_print(ANDROID_LOG_INFO, "native", "clientRequestUpdate=%sresult=%s", rtn, p_res);
     return state;
+}
+
+static int cb_l_sdk_media(void* p_obj, int protocol, int id, int chnn, int idx, int md_id, l_md_buf_t* p_data)
+{
+    char* data= p_data->p_buf;
+    if (data!=NULL){
+        __android_log_print(ANDROID_LOG_INFO, "native", "cb_l_sdk_media");
+    }
+}
+
+
+extern "C" JNIEXPORT jint
+JNICALL
+Java_com_afscope_sloptoelectronic_OptoelecJinV2_mediaListener(
+        JNIEnv *env,
+        jobject /* this */) {
+    char* name = "mediaListener";
+    int code = l_sdk_md_add_listener(name, cb_l_sdk_media, NULL);
+    return code;
+}
+
+
+extern "C" JNIEXPORT jint
+JNICALL
+Java_com_afscope_sloptoelectronic_OptoelecJinV2_startRecord(
+        JNIEnv *env,
+        jobject /* this */,jstring string) {
+//    jboolean jboolean1 = true;
+//    const char *path = env->GetStringUTFChars(string, &jboolean1);
+//    fr_h264_t *pT = fr_h264_open(path, 0);
+//    char* p_h264=NULL;
+//    int frame_type=0;
+//    fr_h264_key_t* p_key=NULL;
+//    int i = fr_h264_get_next(pT, &p_h264, &frame_type, p_key);
+//    char *data = pT->p_data;
+//    if (data!=NULL){
+//        __android_log_print(ANDROID_LOG_INFO, "native", "cb_l_sdk_media=%d",i);
+//    }
+    return 0;
+}
+extern "C" JNIEXPORT jint
+JNICALL
+Java_com_afscope_sloptoelectronic_OptoelecJinV2_stopRecord(
+        JNIEnv *env,
+        jobject /* this */) {
+
 }

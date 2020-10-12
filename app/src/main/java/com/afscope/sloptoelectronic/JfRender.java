@@ -83,33 +83,6 @@ public class JfRender implements GLSurfaceView.Renderer {
         renderYUV();
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4);
     }
-
-    //shader的vsh源码字符串
-    private static final String vertexShaderString =
-            "attribute vec4 vertexIn;" +
-                    "attribute vec2 textureIn;" +
-                    "varying vec2 textureOut;" +
-                    "void main() {" +
-                    "gl_Position = vertexIn;" +
-                    "v_texPosition = textureIn;" +
-                    "}";
-
-    //shader的fsh源码字符串
-    private static final String yuvFragmentShaderString =
-            "precision mediump float;" +
-                    "uniform sampler2D tex_y;" +
-                    "uniform sampler2D tex_u;" +
-                    "uniform sampler2D tex_v;" +
-                    "varying vec2 textureOut;" +
-                    "void main() {" +
-                    "vec4 c = vec4((texture2D(tex_y, textureOut).r - 16./255.) * 1.164);" +
-                    "vec4 U = vec4(texture2D(tex_u, textureOut).r - 128./255.);" +
-                    "vec4 V = vec4(texture2D(tex_v, textureOut).r - 128./255.);" +
-                    "c += V * vec4(1.596, -0.813, 0, 0);" +
-                    "c += U * vec4(0, -0.392, 2.017, 0);" +
-                    "c.a = 1.0;" +
-                    "gl_FragColor = c;" +
-                    "}";
     /**
      * 初始化
      */

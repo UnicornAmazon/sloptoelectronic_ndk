@@ -15,5 +15,6 @@ public class OptoelecJinV2 {
     public native int multicastClose();
     public native int sdkInit();
     public native int clientRequestUpdate(String path);
-    public native int getYuvMediaData();
+    public native int mediaListener();
+    public native int startRecord(String path);
 }
